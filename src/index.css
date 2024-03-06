@@ -80,3 +80,7 @@ code {
   left: 50%;
   transform: translateX(-50%);
 }
+.navbar {
+  background: #0B1215;
+  opacity: .8;
+}
