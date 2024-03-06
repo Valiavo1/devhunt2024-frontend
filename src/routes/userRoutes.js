@@ -11,10 +11,5 @@ export const userRoutes = {
       name: 'Home',
       element: <Navigate to="/user/home"/>,
     },
-    {
-      path: '/user/home',
-      name: 'Home',
-      element: <Home/>,
-    },
   ],
 }

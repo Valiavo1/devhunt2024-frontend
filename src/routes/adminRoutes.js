@@ -11,10 +11,5 @@ export const adminRoutes = {
       name: 'Dashboard',
       element: <Navigate to="/admin/dashboard"/>,
     },
-    {
-      path: '/admin/dashboard',
-      name: 'Dashboard',
-      element: <Dashboard/>,
-    },
   ],
 }
