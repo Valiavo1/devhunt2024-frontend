@@ -6,7 +6,7 @@ const UserLayout = () => {
   if ( !localStorage.getItem ('USER_ACCESS') ) return <Navigate to="/"/>
 
   return (
-      <div className="bg-[#0B1215] h-screen">
+      <div className="bg-[#0B1215] h-screen overflow-hidden">
           <UserNavbar/>
           <div className="wrapper d-flex flex-column min-vh-100 bg-light">
               <div className="body px-3 w-1/3 mx-auto">

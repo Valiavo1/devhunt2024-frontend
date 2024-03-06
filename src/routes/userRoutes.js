@@ -4,6 +4,7 @@ import {Home} from "../views/Home";
 import {Search} from "../views/Search";
 import {Activy} from "../views/Activy";
 import {UserAccount} from "../views/profile/user-account/UserAccount";
+import {NewPost} from "../views/NewPost";
 
 export const userRoutes = {
   path: '/user',
@@ -29,6 +30,11 @@ export const userRoutes = {
       path: '/user/activy',
       name: 'Activy',
       element: <Activy/>,
+    },
+    {
+      path: '/user/new',
+      name: 'New',
+      element: <NewPost/>,
     },
     {
       path: '/user/profile',
