@@ -1,8 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import Icon from '../icon/Icon';
-import {EditPhoto} from '../icon/IconeFile';
+import {AddNewIcon} from '../icon/IconeFile';
 
 const ProfileUser = ({
                        children,
@@ -118,7 +116,7 @@ const ProfileUser = ({
 
   return (
     <div
-      className={classNames(className)}
+      className={className}
       {...rest}
       onMouseEnter={handleHover}
       onMouseLeave={() => setIsHovered(false)}
@@ -129,7 +127,7 @@ const ProfileUser = ({
 
       {editable && isHovered && (
         <div style={iconStyle} onClick={handleClick}>
-          <Icon icon={icon || EditPhoto}/>
+          <Icon icon={icon || AddNewIcon}/>
         </div>
       )}
 
@@ -154,13 +152,5 @@ const ProfileUser = ({
   );
 };
 
-ProfileUser.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  src: PropTypes.string,
-  icon: PropTypes.string,
-  editable: PropTypes.bool,
-  changeProfile: PropTypes.func,
-};
 
 export default ProfileUser;

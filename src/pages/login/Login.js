@@ -10,8 +10,7 @@ const Login = () => {
 
   const {login} = useAuthStore()
 
-  const handleLogin = (e) => {
-    e.preventDefault()
+  const handleLogin = () => {
     login(username, password)
   }
 
@@ -31,7 +30,6 @@ const Login = () => {
                 </div>
 
                 <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                  <form>
                     <div className="py-8">
                       <div style={{ textAlign: 'center' }}>
                         <span className="text-2xl font-semibold">Connexion</span>
@@ -82,13 +80,12 @@ const Login = () => {
 
                     <div className="flex items-center justify-end mt-4">
                       <button
-                          className="ms-4 inline-flex items-center px-4 py-2 bg-[#87B016] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-800 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                          className="ms-4 inline-flex items-center px-4 py-2 bg-[#87B016] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-[#536C0D] focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-[#87B016] focus:ring-offset-2 transition ease-in-out duration-150"
                           onClick={handleLogin}
                       >
                         Se connecter
                       </button>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
