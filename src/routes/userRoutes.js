@@ -3,7 +3,7 @@ import UserLayout from "../layouts/UserLayout";
 import {Home} from "../views/Home";
 import {Search} from "../views/Search";
 import {Activy} from "../views/Activy";
-import {UserAccount} from "../views/profile/UserAccount";
+import {UserAccount} from "../views/profile/user-account/UserAccount";
 
 export const userRoutes = {
   path: '/user',

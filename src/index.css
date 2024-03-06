@@ -84,3 +84,11 @@ code {
   background: #0B1215;
   opacity: .8;
 }
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
