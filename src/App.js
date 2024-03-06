@@ -1,24 +1,22 @@
-import './App.css';
+import React, {Component, Suspense} from 'react'
+import {RouterProvider} from 'react-router-dom'
+import routes from "./routes/routes";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>DEV MODIFICATION</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const loading = (
+  <div className="pt-3 text-center">
+    <div className="sk-spinner sk-spinner-pulse"></div>
+  </div>
+)
+
+class App extends Component {
+  render () {
+    return (
+      <Suspense fallback={loading}>
+            <RouterProvider router={routes}/>
+      </Suspense>
+    )
+  }
 }
 
-export default App;
+export default App
