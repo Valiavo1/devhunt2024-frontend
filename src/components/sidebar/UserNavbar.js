@@ -10,7 +10,7 @@ import {
     HomeIcon, ProfileFilledIcon,
     ProfileIcon,
     SearchIcon,
-    SettingIcon
+    LogoutIcon
 } from "../icon/IconeFile";
 import {useAuthStore} from "../../store/AuthStore";
 
@@ -29,7 +29,7 @@ export const UserNavbar = () => {
                     </Link>
                     <div className="flex items-center order-2">
                         <div className="opacity-40 text-white cursor-pointer hover:opacity-100" onClick={logout}>
-                            <Icon icon={SettingIcon}/>
+                            <Icon icon={LogoutIcon}/>
                         </div>
                     </div>
                     <div className="flex justify-center items-center lg:flex lg:w-auto order-1" id="mobile-menu-2">
