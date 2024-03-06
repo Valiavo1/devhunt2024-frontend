@@ -13,7 +13,7 @@ export const UserAccount = () => {
 
     return (
         <>
-            <div>
+            <div className="w-full">
                 <UserInfo/>
             </div>
 

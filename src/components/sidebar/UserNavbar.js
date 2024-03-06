@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import logo from "../../assets/maddle-logo.png";
 import {Link, useLocation} from "react-router-dom";
 import Icon from "../icon/Icon";
@@ -17,6 +17,7 @@ import {useAuthStore} from "../../store/AuthStore";
 export const UserNavbar = () => {
     const location = useLocation()
     const {logout} = useAuthStore()
+
     return (
         <header>
             <nav className="navbar px-4 lg:px-8 py-6 lg:py-6">
@@ -58,9 +59,16 @@ export const UserNavbar = () => {
                                 }
                             </li>
                             <li>
-                                <div className="opacity-40">
-                                    <Icon icon={AddNewIcon}/>
-                                </div>
+                                {location.pathname === "/user/new" ? (
+                                    <Link to="/user/new">
+                                        <Icon icon={AddNewIcon}/>
+                                    </Link>
+                                ) : (
+                                    <Link to="/user/new" className="opacity-40">
+                                        <Icon icon={AddNewIcon}/>
+                                    </Link>
+                                )
+                                }
                             </li>
                             <li>
                                 {location.pathname === "/user/activy" ? (
