@@ -5,7 +5,7 @@ const PresFooter = () => {
 
 	return (
 		<footer className="bg-white dark:bg-gray-900">
-			<div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+			<div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8  mt-20">
 				<div className="mb-6 md:mb-0">
 						<img src={logoENI} className="h-10 me-10 mb-6" alt="Logo ENI"/>
 									</div>
@@ -19,9 +19,9 @@ const PresFooter = () => {
 						</div>
 						<div>
 							<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contacts</h2>
-							<ul className="text-gray-500 dark:text-gray-400 font-medium">
+							<ul className="text-gray-500 dark:text-gray-400 font-normal">
 								<li className="mb-4 flex items-center">
-									<a href="https://github.com/themesberg/flowbite" className="hover:underline ">
+									<a href="#" className="hover:underline ">
 										<svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-vubbuv w-6 h-6" focusable="false"
 										     aria-hidden="true" viewBox="0 0 24 24" data-testid="PhoneIcon">
 											<path
@@ -31,7 +31,7 @@ const PresFooter = () => {
 									</a>
 								</li>
 								<li className="mb-4 flex items-center">
-									<a href="https://discord.gg/4eeurUVvTy" className="hover:underline">
+									<a href="#" className="hover:underline">
 										<svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-vubbuv w-6 h-6" focusable="false"
 										     aria-hidden="true" viewBox="0 0 24 24" data-testid="EmailIcon">
 											<path
@@ -41,7 +41,7 @@ const PresFooter = () => {
 									</a>
 								</li>
 								<li className="mb-4 flex items-center">
-									<a href="https://discord.gg/4eeurUVvTy" className="hover:underline">
+									<a href="#" className="hover:underline">
 										<svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-vubbuv w-6 h-6" focusable="false"
 										     aria-hidden="true" viewBox="0 0 24 24" data-testid="FacebookIcon">
 											<path
@@ -51,7 +51,7 @@ const PresFooter = () => {
 										</a>
 								</li>
 								<li className="mb-4 flex items-center">
-									<a href="https://discord.gg/4eeurUVvTy" className="hover:underline">
+									<a href="#" className="hover:underline">
 										<svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-vubbuv w-6 h-6" focusable="false"
 										     aria-hidden="true" viewBox="0 0 24 24" data-testid="LinkedInIcon">
 											<path
@@ -64,7 +64,7 @@ const PresFooter = () => {
 						</div>
 						<div>
 							<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Localisation</h2>
-							<ul className="text-gray-500 dark:text-gray-400 font-medium">
+							<ul className="text-gray-500 dark:text-gray-400 font-normal">
 								<li className="mb-4 flex items-center">
 									<svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-vubbuv w-6 h-6" focusable="false"
 									     aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnIcon">
