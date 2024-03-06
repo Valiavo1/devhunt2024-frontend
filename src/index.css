@@ -63,3 +63,8 @@ code {
   background: rgb(11,18,21);
   background: linear-gradient(180deg, rgba(11,18,21,1) 0%, rgba(11,18,21,1) 50%, rgba(64,105,123,1) 100%);
 }
+
+.navbar {
+  background: #0B1215;
+  opacity: .8;
+}
