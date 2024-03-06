@@ -12,10 +12,11 @@ import {
     SearchIcon,
     SettingIcon
 } from "../icon/IconeFile";
+import {useAuthStore} from "../../store/AuthStore";
 
 export const UserNavbar = () => {
     const location = useLocation()
-    console.log(location)
+    const {logout} = useAuthStore()
     return (
         <header>
             <nav className="navbar px-4 lg:px-8 py-6 lg:py-6">
@@ -26,7 +27,7 @@ export const UserNavbar = () => {
                             className="self-center text-xl font-semibold whitespace-nowrap text-white opacity-40 hover:opacity-100">Maddle</span>
                     </Link>
                     <div className="flex items-center order-2">
-                        <div className="opacity-40 text-white cursor-pointer">
+                        <div className="opacity-40 text-white cursor-pointer hover:opacity-100" onClick={logout}>
                             <Icon icon={SettingIcon}/>
                         </div>
                     </div>
@@ -89,18 +90,6 @@ export const UserNavbar = () => {
                     </div>
                 </div>
             </nav>
-            <DropDown/>
         </header>
     )
-}
-
-const DropDown = () => {
-    return (
-        <>
-            <ul>
-                <li>Like</li>
-                <li>Deconnexion</li>
-            </ul>
-        </>
-    );
 }
