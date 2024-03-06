@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.login-button {
+  background: #87B016;
+}
+
+.login-button:hover {
+  background: #739612;
+}
+
+.login-button:focus {
+  background: #a2d018;
+}
+
+.pres-header {
+  background: #0B1215;
 }
