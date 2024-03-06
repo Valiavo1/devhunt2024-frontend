@@ -2,6 +2,7 @@ import {Navigate} from "react-router-dom";
 import GuestLayout from "../layouts/GuestLayout";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import Presentation from "../pages/presentation/Presentation";
 
 export const guestRoutes = {
   path: '/',
@@ -14,9 +15,9 @@ export const guestRoutes = {
       element: <Navigate to="/presentation"/>,
     },
     {
-      path: '/',
+      path: '/presentation',
       name: 'Presentation',
-      element: <Navigate to="/presentation"/>,
+      element: <Presentation/>,
     },
     {
       path: '/login',
