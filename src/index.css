@@ -31,3 +31,35 @@ code {
 .pres-header {
   background: #0B1215;
 }
+
+.line-pres {
+  height: .03em;
+  width: 100%;
+  background: rgb(11,18,21);
+  background: linear-gradient(90deg, rgba(11,18,21,1) 0%, rgba(214,230,237,1) 50%, rgba(11,18,21,1) 100%);
+}
+
+.presentation {
+  background: rgb(11,18,21);
+  background: linear-gradient(180deg, rgba(11,18,21,1) 0%, rgba(11,18,21,1) 50%, rgba(64,105,123,1) 100%);
+}
+
+.login-primary-button {
+  padding: 20px 12px;
+  border: 2px solid #87B016;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.login-primary-button:hover {
+  border: 2px solid #98c71b;
+}
+
+.green-text {
+  color: #87B016;
+}
+
+.login-page {
+  background: rgb(11,18,21);
+  background: linear-gradient(180deg, rgba(11,18,21,1) 0%, rgba(11,18,21,1) 50%, rgba(64,105,123,1) 100%);
+}

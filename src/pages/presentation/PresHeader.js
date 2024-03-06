@@ -5,7 +5,7 @@ import logo from  "./../../assets/maddle-logo.png"
 export const PresHeader = () => {
     return (
         <header>
-            <nav className="bg-white pres-header px-4 lg:px-12 py-2.5">
+            <nav className="bg-white pres-header px-4 lg:px-12 py-4">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
                         <img src={logo} className="mr-3 h-6 sm:h-9"
@@ -23,7 +23,7 @@ export const PresHeader = () => {
                     </div>
                 </div>
             </nav>
-            <hr/>
+            <div className="line-pres"/>
         </header>
     )
 }
