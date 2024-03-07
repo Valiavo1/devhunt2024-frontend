@@ -10,13 +10,15 @@ import {
     HomeIcon, ProfileFilledIcon,
     ProfileIcon,
     SearchIcon,
-    LogoutIcon
+    LogoutIcon, LeftArrow
 } from "../icon/IconeFile";
 import {useAuthStore} from "../../store/AuthStore";
 
 export const UserNavbar = () => {
-    const location = useLocation()
-    const {logout} = useAuthStore()
+    const location = useLocation();
+    const { logout } = useAuthStore();
+
+    const isPostDetailPage = location.pathname.startsWith("/user/post/")
 
     return (
         <header>
@@ -31,6 +33,13 @@ export const UserNavbar = () => {
                     </div>
                     <div className="flex justify-center items-center lg:flex lg:w-auto" id="mobile-menu-2">
                         <ul className="flex flex-row mt-4 font-medium lg:space-x-16 lg:mt-0 text-white space-x-4">
+                            {isPostDetailPage && (
+                                <li>
+                                    <Link to="/user/home" className="opacity-40 hover:opacity-100">
+                                        <Icon icon={LeftArrow}/>
+                                    </Link>
+                                </li>
+                            )}
                             <li>
                                 {location.pathname === "/user/home" ? (
                                     <Link to="/user/home">

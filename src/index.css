@@ -150,3 +150,18 @@ code {
   white-space: nowrap;
   max-width: 100%;
 }
+
+.profile-home {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.46);
+}
+
+.pj-picture {
+  width: 60%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}

@@ -114,10 +114,56 @@ const FileTitle = ({ title }) => {
     }
   };
 
+  const getExt = (title) => {
+    const fileExtension = title.split('.').pop().toLowerCase();
+
+    switch (fileExtension) {
+      case 'ppt':
+      case 'pptx':
+      case 'pdf':
+      case 'xls':
+      case 'xlsx':
+      case 'doc':
+      case 'docx':
+        return false;
+      default:
+        return true;
+    }
+  };
+
+
+  const getFileIcon = (title) => {
+    const fileExtension = title.split('.').pop().toLowerCase();
+
+    switch (fileExtension) {
+      case 'ppt':
+      case 'pptx':
+        return '/File/PptFile.svg';
+      case 'pdf':
+        return '/File/PdfFile.svg';
+      case 'xls':
+      case 'xlsx':
+        return '/File/ExcelFile.svg';
+      case 'doc':
+      case 'docx':
+        return '/File/WordFile.svg';
+      default:
+        return '/File/OtherFile.svg';
+    }
+  };
+
+  const fileIcon = getFileIcon(title);
+
   return (
       <div className="file-title">
-        <span className="file-icon">&#128196;</span>
+        <img
+            src={process.env.PUBLIC_URL + fileIcon}  // Add PUBLIC_URL to ensure correct path in React app
+            alt="file-picture"
+        />
         <span className="file-name">{getShortenedTitle(title, MAX_TITLE_LENGTH)}</span>
       </div>
   );
 };
+
+export default FileTitle;
+

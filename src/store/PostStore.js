@@ -1,15 +1,21 @@
 import {create} from "zustand";
-import axios from "axios";
+import axios, {post} from "axios";
 import {SERVER_URL} from "../utils/URL";
 
 export const usePostStore = create((set) => ({
-    post: null,
+    posts: [],
     fetchPost () {
-
+        axios.get(SERVER_URL + `/post`)
+            .then(r => {
+                set({posts : r.data})
+                console.log(r.data)
+            })
+            .catch(e => {
+                console.error(e)
+            })
     },
     addPost(title, description, type, attachment) {
         const formData = new FormData();
-
         formData.append("json_data", JSON.stringify({
             title: title,
             description: description,
@@ -27,6 +33,4 @@ export const usePostStore = create((set) => ({
                 console.error(error);
             });
     }
-
-
 }))
