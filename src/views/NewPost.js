@@ -6,18 +6,30 @@ import { ajoutPieces, gif, tag, listIcon } from "../components/icon/IconeFile";
 export const NewPost = () => {
   const [content, setContent] = useState('');
   const [attachments, setAttachments] = useState([]);
+  const [gifs, setGifs] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [types, setTypes] = useState([]);
 
   const handleContentChange = (event) => {
     setContent(event.target.value);
   };
-
+  const handleGif= (gif) => {
+    setGifs([...gifs, gif]);
+  };
+  const handleTag = (tag) => {
+    setTags([...tags, tag]);
+  };
+  const handleType = (type) => {
+    setTypes([...types, type]);
+  };
   const handleAttachment = (attachment) => {
     setAttachments([...attachments, attachment]);
   };
 
   const handleSubmit = () => {
     // Combine le contenu et les pièces jointes pour le post
-    const postContent = content + "\n\nPièces jointes:\n" + attachments.join("\n");
+    const attachmentsContent = attachments.length > 0 ? `\n\nPièces jointes:\n${attachments.join("\n")}` : "";
+    const postContent = `${content}${attachmentsContent}`;
 
     // Logique pour soumettre le nouveau post ici
     console.log('Contenu du post:', postContent);
@@ -25,6 +37,8 @@ export const NewPost = () => {
     // Réinitialiser le champ après la soumission
     setContent('');
     setAttachments([]);
+    setTags([]);
+    setTypes([]);
   };
 
   return (
@@ -42,27 +56,30 @@ export const NewPost = () => {
               <h1 className="text-xl font-semibold text-gray-400">Ainasoa</h1>
             </div>
             <div>
-              <textarea
-                id="content"
-                name="content"
-                rows="10"
-                className="mt-1 block w-full shadow-sm sm:text-sm rounded-md bg-transparent text-gray-500 placeholder-gray-500 placeholder-opacity-50 outline-none"
-                placeholder="Nouveau post"
-                value={content}
-                onChange={handleContentChange}
-              ></textarea>
+             <textarea
+               id="content"
+               name="content"
+               rows="6" // Nombre de lignes
+               className="mt-1 block w-200 sm:w-full shadow-sm sm:text-sm rounded-md bg-transparent text-gray-500 placeholder-gray-500 placeholder-opacity-50 outline-none"
+               placeholder="Nouveau post"
+               value={content}
+               onChange={handleContentChange}
+             ></textarea>
+
             </div>
             <div className="mt-4 flex justify-center">
-              <button className="m-2" onClick={() => handleAttachment("Piece jointe 1")}>
+              <button className="m-2" onClick={() => {handleAttachment("Piece jointe 1");
+                console.log("Bouton Pièce jointe cliqué")}}>
                 <Icon icon={ajoutPieces} className="w-6 h-6 text-white" />
               </button>
-              <button className="m-2">
+              <button className="m-2" onClick={() => {handleGif("Gif 1");
+              console.log()}}>
                 <Icon icon={gif} className="w-6 h-6 text-white" />
               </button>
-              <button className="m-2">
+              <button className="m-2" onClick={() => handleTag("Tag 1")}>
                 <Icon icon={tag} className="w-6 h-6 text-white" />
               </button>
-              <button className="m-2">
+              <button className="m-2" onClick={() => handleType("Type 1")}>
                 <Icon icon={listIcon} className="w-6 h-6 text-white" />
               </button>
             </div>
