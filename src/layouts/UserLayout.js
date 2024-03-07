@@ -10,10 +10,10 @@ const UserLayout = () => {
 
 
   return (
-      <div className="bg-[#0B1215] h-screen overflow-hidden">
+      <div className="bg-[#0B1215] h-auto min-h-screen">
           <UserNavbar/>
-          <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-              <div className="body px-3 w-1/3 mx-auto">
+          <div className="wrapper d-flex flex-column min-vh-100 bg-light overflow-auto">
+              <div className="body px-3 w-10/12 md:w-1/3 mx-auto overflow-auto">
                   <div className="line-under-navbar"></div>
                   <Outlet/>
               </div>
