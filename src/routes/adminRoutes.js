@@ -18,7 +18,7 @@ export const adminRoutes = {
     {
       path: '/admin',
       name: 'Dashboard',
-      element: <Navigate to="/admin/dashboard"/>,
+      element: <Navigate to="/admin/corpsAdmin"/>,
     },
     {
       path: '/admin/dashboard',

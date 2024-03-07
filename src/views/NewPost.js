@@ -2,12 +2,14 @@ import React, { useState, useRef } from "react";
 import Icon from "../components/icon/Icon";
 import { ajoutPieces, tag, listIcon } from "../components/icon/IconeFile";
 import {usePostStore} from "../store/PostStore";
+import {useAuthStore} from "../store/AuthStore";
 
 export const NewPost = () => {
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [attachments, setAttachments] = useState([]);
   const fileInputRef = useRef(null);
+  const {user} = useAuthStore()
 
   const handleContentChange = (event) => {
     setContent(event.target.value);
@@ -38,15 +40,15 @@ export const NewPost = () => {
           <div className="flex w-full items-center">
             <div>
               <div className="mb-2 w-full">
-                <h1 className="w-full text-xl font-semibold text-gray-400">Ainasoa</h1>
+                <h1 className="w-full text-xl font-semibold text-gray-400"></h1>
               </div>
               <div className="w-full">
-                <input type={"text"} className={"w-full px-5 bg-transparent"} placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <input type={"text"} className={"text-white w-full px-5 bg-transparent"} placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
               <textarea
                   id="content"
                   name="content"
                   rows="10"
-                  className="w-full mt-1 block shadow-sm sm:text-sm rounded-md bg-transparent text-gray-500 placeholder-gray-500 placeholder-opacity-50 outline-none"
+                  className="text-white w-full mt-1 block shadow-sm sm:text-sm rounded-md bg-transparent placeholder-gray-500 placeholder-opacity-50 outline-none"
                   placeholder="Nouveau post"
                   value={content}
                   onChange={handleContentChange}
