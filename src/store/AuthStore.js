@@ -16,7 +16,7 @@ export const useAuthStore = create((set) => ({
                 console.log(r.data)
             })
             .catch(e => {
-                console.error(e.message)
+                console.error(e)
             })
     },
     logout () {

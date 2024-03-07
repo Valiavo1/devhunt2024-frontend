@@ -9,13 +9,13 @@ export const UserInfo = () => {
 
     return (
         <>
-            <div className="flex flex-wrap text-white w-full justify-between items-center">
-                <div>
+            <div className="flex flex-wrap text-center md:text-left mx-auto text-white w-full justify-between items-center">
+                <div className="order-2 md:order-1 w-full md:w-auto">
                     <h1 className="text-2xl mb-2 font-bold mt-5">Valiavo</h1>
                     <h3 className="text-sm email-profile mb-5">valiavoandriantsoa30@gmail.com</h3>
                     <h4 className="text-sm email-profile">39 followers</h4>
                 </div>
-                <div>
+                <div className="flex w-full md:w-auto flex-col order-1 md:order-2 space-y-3 justify-center items-center">
                     <img
                         src={userAvatarSrc}
                         alt="user avatar"
@@ -24,8 +24,9 @@ export const UserInfo = () => {
                         }}
                         className="user-avatar"
                     />
+                    <p className="text-xs text-center w-auto px-2 bg-role rounded-2xl py-1">Defaul</p>
                 </div>
-                <div className="w-full">
+                <div className="w-full order-3">
                     <div className="w-full rounded edit-profile">Modifier le profil</div>
                 </div>
             </div>
