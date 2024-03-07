@@ -30,7 +30,8 @@ export const useAuthStore = create((set) => ({
 }))
 
 const setRole = (user) => {
-    localStorage.setItem('user_id', user.path)
+    localStorage.setItem('user_id', user.id)
+    localStorage.setItem('img_user', user.path)
     if (user.isAdmin)
         localStorage.setItem('ADMIN_ACCESS', 'hgdjklgfeafutfadvkjhgvdkayufodagfiyda;wglkgdali')
     else
