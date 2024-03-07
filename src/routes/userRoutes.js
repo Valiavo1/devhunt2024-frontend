@@ -5,7 +5,6 @@ import {Search} from "../views/Search";
 import {Activy} from "../views/Activy";
 import {UserAccount} from "../views/profile/user-account/UserAccount";
 import {NewPost} from "../views/NewPost";
-import {Post} from "../views/profile/post/Post";
 
 export const userRoutes = {
   path: '/user',
@@ -21,11 +20,6 @@ export const userRoutes = {
       path: '/user/home',
       name: 'Home',
       element: <Home/>,
-    },
-    {
-      path: '/user/post/:postId',
-      name: 'Post',
-      element: <Post/>,
     },
     {
       path: '/user/search',
