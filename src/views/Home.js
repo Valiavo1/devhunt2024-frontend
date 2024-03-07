@@ -8,6 +8,7 @@ import {
   LikeFilledIcon,
   CommentsFilledIcone
 } from "../components/icon/IconeFile";
+import Filters from "./profile/user-account/Filters";
 export const Home = () => {
   const [isLiked, setIsLiked] = useState(false);
 const [isComment, setIsComment] = useState(false);
@@ -19,7 +20,19 @@ const handleCommentClick = () => {
   };
     return (
         <>
-            <div className="post-card">
+          <form className="max-w-xs mb-5 relative bg-transparent">
+            <select
+                    className="border border-gray-600 text-white text-xs rounded-lg inline-block p-2 -mt-10 bg-transparent">
+              <option selected style={{background: '#0b1215'}}>Tout</option>
+              <option value="entreprise" style={{background: '#0b1215'}}>Entreprise</option>
+              <option value="immobilier" style={{background: '#0b1215'}}>Immobilier</option>
+              <option value="aîné" style={{background: '#0b1215'}}>Aînés</option>
+              <option value="enseignant" style={{background: '#0b1215'}}>Enseignant</option>
+              <option value="club" style={{background: '#0b1215'}}>Club</option>
+              <option value="cercle d'etude" style={{background: '#0b1215'}}>Cercle d'étude</option>
+            </select>
+          </form>
+          <div className="post-card">
               <div className="flex items-center top">
                 <div className="profil-actu">
                   <img src={logoENI} alt="profil" className="w-10 h-10"/>

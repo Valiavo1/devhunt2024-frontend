@@ -41,7 +41,7 @@ export const NewPost = () => {
                 <h1 className="w-full text-xl font-semibold text-gray-400">Ainasoa</h1>
               </div>
               <div className="w-full">
-                <input type={"text"} className={"w-full px-5"} placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <input type={"text"} className={"w-full px-5 bg-transparent"} placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
               <textarea
                   id="content"
                   name="content"
