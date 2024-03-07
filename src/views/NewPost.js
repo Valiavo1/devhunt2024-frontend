@@ -41,16 +41,16 @@ export const NewPost = () => {
                 <h1 className="w-full text-xl font-semibold text-gray-400">Ainasoa</h1>
               </div>
               <div className="w-full">
-                <input type={"text"} className={"w-full px-5"} placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
-                <textarea
-                    id="content"
-                    name="content"
-                    rows="10"
-                    className="w-full mt-1 block shadow-sm sm:text-sm rounded-md bg-transparent text-gray-500 placeholder-gray-500 placeholder-opacity-50 outline-none"
-                    placeholder="Nouveau post"
-                    value={content}
-                    onChange={handleContentChange}
-                ></textarea>
+                <input type={"text"} className={"w-full px-5 bg-transparent"} placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
+              <textarea
+                  id="content"
+                  name="content"
+                  rows="10"
+                  className="w-full mt-1 block shadow-sm sm:text-sm rounded-md bg-transparent text-gray-500 placeholder-gray-500 placeholder-opacity-50 outline-none"
+                  placeholder="Nouveau post"
+                  value={content}
+                  onChange={handleContentChange}
+              ></textarea>
               </div>
               <div className="flex flex-wrap text-white">
                 {attachments.map((file, index) => (
@@ -166,3 +166,4 @@ const FileTitle = ({ title }) => {
 };
 
 export default FileTitle;
+
