@@ -62,7 +62,7 @@ export const Home = () => {
                       <p>{post.description}</p>
                     </div>
                     <div className="my-4 contenu text-white">
-                      {post.piecesJointe.map((pj, index) => (
+                      {post?.piecesJointe?.map((pj, index) => (
                           <div onClick={() => downloadFile(pj.piecesJointe)}>
                             <React.Fragment key={index}>
                               {isImageFile(pj.piecesJointe) ? (
