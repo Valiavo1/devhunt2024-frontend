@@ -37,7 +37,7 @@ export const UserNavbar = () => {
                                         <Icon icon={HomeFilledIcon}/>
                                     </Link>
                                 ) : (
-                                    <Link to="/user/home" className="opacity-40">
+                                    <Link to="/user/home" className="opacity-40 hover:opacity-80 transition-transform transform hover:brightness-200">
                                         <Icon icon={HomeIcon}/>
                                     </Link>
                                 )
@@ -49,7 +49,7 @@ export const UserNavbar = () => {
                                         <Icon icon={SearchIcon}/>
                                     </Link>
                                 ) : (
-                                    <Link to="/user/search" className="opacity-40">
+                                    <Link to="/user/search" className="opacity-40 hover:opacity-80 transition-transform transform hover:brightness-200">
                                         <Icon icon={SearchIcon}/>
                                     </Link>
                                 )
@@ -61,7 +61,7 @@ export const UserNavbar = () => {
                                         <Icon icon={AddNewIcon}/>
                                     </Link>
                                 ) : (
-                                    <Link to="/user/new" className="opacity-40">
+                                    <Link to="/user/new" className="opacity-40  hover:opacity-80 transition-transform transform hover:brightness-200">
                                         <Icon icon={AddNewIcon}/>
                                     </Link>
                                 )
@@ -73,7 +73,7 @@ export const UserNavbar = () => {
                                         <Icon icon={HeartFilledIcon}/>
                                     </Link>
                                 ) : (
-                                    <Link to="/user/activy" className="opacity-40">
+                                    <Link to="/user/activy" className="opacity-40 hover:opacity-80 transition-transform transform hover:brightness-200">
                                         <Icon icon={HeartIcon}/>
                                     </Link>
                                 )
@@ -85,7 +85,7 @@ export const UserNavbar = () => {
                                         <Icon icon={ProfileFilledIcon}/>
                                     </Link>
                                 ) : (
-                                    <Link to="/user/profile" className="opacity-40">
+                                    <Link to="/user/profile" className="opacity-40 hover:opacity-80 transition-transform transform hover:brightness-200">
                                         <Icon icon={ProfileIcon}/>
                                     </Link>
                                 )

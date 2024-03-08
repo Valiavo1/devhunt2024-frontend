@@ -24,19 +24,24 @@ export const Home = () => {
     setIsLiked(!isLiked);
   };
 
-  const downloadFile = (file) => {
-    axios.get(SERVER_URL + `/download/file/${file}`)
-        .then(r => {
-          window.open(r.data.file_path, "_blank");
-          console.log(r)
-        })
-        .catch(e => {
-          console.error(e)
-        })
-  }
+  const downloadFile = async (file) => {
+      try {
+        const response = await axios({
+          url: `${SERVER_URL}/download/file/${file}`,
+            method: 'GET',
+            responseType: 'blob',
+      });
 
-  const sendData = (post) => {
-    localStorage.setItem(JSON.stringify(post))
+        const blob = new Blob([response.data]);
+        const url = window.URL.createObjectURL(blob);
+
+        const link = document.createElement('a')
+        link.href = url;
+        link.setAttribute('download', file)
+        link.click()
+      } catch (error) {
+        console.error('Download error:', error)
+      }
   }
 
   const {fetchPost, posts} = usePostStore()
