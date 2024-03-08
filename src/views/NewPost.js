@@ -32,60 +32,62 @@ export const NewPost = () => {
   const  {addPost} = usePostStore()
 
   return (
-      <div className="w-full mx-auto px-4 py-8 overflow-auto">
+      <div className="w-full mx-auto px-4 py-8 overflow-hidden">
         <div className="items-center">
           <h1 className="text-l text-gray-400 font-bold mb-4 items-center">Nouveau post</h1>
         </div>
-        <div className="mb-4 w-full border border-gray-300 rounded-lg p-4" style={{ position: "relative" }}>
+        <div className="mb-4 w-full border border-gray-300 rounded-lg p-4 np-screen overflow-auto" style={{ position: "relative" }}>
           <div className="flex w-full items-center">
-            <div>
+            <div className="w-full">
               <div className="mb-2 w-full">
                 <h1 className="w-full text-xl font-semibold text-gray-400"></h1>
               </div>
               <div className="w-full">
-                <input type={"text"} className={"text-white w-full px-5 bg-transparent"} placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
-              <textarea
-                  id="content"
-                  name="content"
-                  rows="10"
-                  className="text-white w-full mt-1 block shadow-sm sm:text-sm rounded-md bg-transparent placeholder-gray-500 placeholder-opacity-50 outline-none"
-                  placeholder="Nouveau post"
-                  value={content}
-                  onChange={handleContentChange}
-              ></textarea>
-              </div>
-              <div className="flex flex-wrap text-white">
-                {attachments.map((file, index) => (
-                    <div key={index} className="m-2">
-                      {file.type.startsWith('image/') ? (
-                          <img src={URL.createObjectURL(file)} alt={file.name} className="max-w-[200px] max-h-[200px]"/>
-                      ) : (
-                          <FileTitle title={file.name}/>
-                      )}
-                    </div>
-                ))}
-              </div>
-              <div className="mt-4 flex justify-center">
-                <button
-                    className="m-2 cursor-pointer"
-                    onClick={() => fileInputRef.current.click()}
-                >
-                  <Icon icon={ajoutPieces} className="w-6 h-6 text-white"/>
-                </button>
-                <button className="m-2">
-                  <Icon icon={tag} className="w-6 h-6 text-white"/>
-                </button>
-                <button className="m-2">
-                  <Icon icon={listIcon} className="w-6 h-6 text-white"/>
-                </button>
-                <input
-                    type="file"
-                    className="hidden"
-                    onChange={handleAttachmentChange}
-                    ref={fileInputRef}
-                    multiple
-                    name="attachmentInput"
-                />
+                <input type={"text"} className={"text-white w-full input-title focus:outline-none p-5"}
+                       placeholder={"Titre"} value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <div className="comment-field mt-5">
+                            <textarea
+                                id="content"
+                                name="content"
+                                rows={Math.min(Math.ceil(content.length / 50) + content.split('\n').length, 10)}
+                                className="text-white mb-3 w-full mt-1 block shadow-sm sm:text-sm rounded-md bg-transparent placeholder-gray-500 placeholder-opacity-50 outline-none"
+                                placeholder="Nouveau post"
+                                value={content}
+                                onChange={handleContentChange}
+                            />
+                  <div className="flex flex-wrap text-white">
+                    {attachments.map((file, index) => (
+                        <div key={index} className="m-2">
+                          {file.type.startsWith('image/') ? (
+                              <img src={URL.createObjectURL(file)} alt={file.name}
+                                   className="max-w-[200px] max-h-[200px]"/>
+                          ) : (
+                              <FileTitle title={file.name}/>
+                          )}
+                        </div>
+                    ))}
+                  </div>
+                  <button
+                      className="m-2 cursor-pointer"
+                      onClick={() => fileInputRef.current.click()}
+                  >
+                    <Icon icon={ajoutPieces} className="w-6 h-6 text-white"/>
+                  </button>
+                  <button className="m-2">
+                    <Icon icon={tag} className="w-6 h-6 text-white"/>
+                  </button>
+                  <button className="m-2">
+                    <Icon icon={listIcon} className="w-6 h-6 text-white"/>
+                  </button>
+                  <input
+                      type="file"
+                      className="hidden"
+                      onChange={handleAttachmentChange}
+                      ref={fileInputRef}
+                      multiple
+                      name="attachmentInput"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -105,7 +107,7 @@ export const NewPost = () => {
 };
 
 
-const FileTitle = ({ title }) => {
+const FileTitle = ({title}) => {
   const MAX_TITLE_LENGTH = 12;
 
   const getShortenedTitle = (title, maxLength) => {
@@ -115,24 +117,6 @@ const FileTitle = ({ title }) => {
       return title.substring(0, maxLength) + " ...";
     }
   };
-
-  const getExt = (title) => {
-    const fileExtension = title.split('.').pop().toLowerCase();
-
-    switch (fileExtension) {
-      case 'ppt':
-      case 'pptx':
-      case 'pdf':
-      case 'xls':
-      case 'xlsx':
-      case 'doc':
-      case 'docx':
-        return false;
-      default:
-        return true;
-    }
-  };
-
 
   const getFileIcon = (title) => {
     const fileExtension = title.split('.').pop().toLowerCase();
@@ -149,6 +133,19 @@ const FileTitle = ({ title }) => {
       case 'doc':
       case 'docx':
         return '/File/WordFile.svg';
+      case 'php':
+        return '/File/phpFile.svg';
+      case 'js':
+      case 'jsx':
+        return '/File/JSFile.svg';
+      case 'html':
+        return '/File/HTMLFile.svg';
+      case 'css':
+        return '/File/CSSFile.svg';
+      case 'python':
+        return '/File/PythonFile.svg';
+      case 'c':
+        return '/File/CFile.svg';
       default:
         return '/File/OtherFile.svg';
     }

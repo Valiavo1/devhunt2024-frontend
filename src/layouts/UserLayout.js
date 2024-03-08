@@ -16,7 +16,7 @@ const UserLayout = () => {
               <div className="w-10/12 mx-auto md:w-1/3 line-under-navbar"></div>
           </div>
           <div className="wrapper d-flex flex-column min-vh-100 bg-light overflow-auto">
-              <div className="body px-3 w-10/12 md:w-1/3 mx-auto overflow-auto">
+              <div className="body px-3 w-10/12 md:w-1/3 mx-auto overflow-auto mt-24">
                   <Outlet/>
               </div>
           </div>
