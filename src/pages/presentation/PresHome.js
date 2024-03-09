@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Icon from "../../components/icon/Icon";
 import {DownloadIcon, Maddle, RightArrow} from "../../components/icon/IconeFile";
 import team from "../../assets/myteam.png";
+import { TypeAnimation } from 'react-type-animation';
 import {downloadFile} from "../../views/Home";
 
 export const PresHome = () => {
@@ -11,7 +12,20 @@ export const PresHome = () => {
             <div className="flex flex-wrap justify-between mx-auto max-w-screen-lg mt-20">
                 <div className="w-full px-3 md:px-0 md:w-8/12 flex flex-col text-white">
                     <div>
-                        <h1 className="text-5xl font-bold mb-10 mt-5">Ensemble, nous prospérons</h1>
+                        {/*<h1 className="text-5xl font-bold mb-10 mt-5">Ensemble, nous prospérons</h1>*/}
+                        <TypeAnimation
+                            sequence={[
+                                'Ensemble, nous prospérons',
+                                1000,
+                                'Maddle nous guide',
+                                1000,
+                                'Ensemble, nous réussissons',
+                                1000,
+                            ]}
+                            speed={50}
+                            style={{ fontSize: '3em', fontWeight: 'bold' }}
+                            repeat={Infinity}
+                        />
                         <p className="text-xl leading-relaxed mb-8 md:w-3/4">
                             <span className="green-text">Maddle</span> est une plateforme d'échange conçue pour
                             faciliter les interactions
