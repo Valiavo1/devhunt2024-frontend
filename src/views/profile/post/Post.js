@@ -133,7 +133,7 @@ export const Post = ({post}) => {
                                             </div>
                                             <div className="flex text-xs items-center text-gray-700 etiquette">
                                                 <Icon icon={etiquetteIcon}/>
-                                                <p>{comment?.userComment.role[0]}</p>
+                                                <p>{comment?.userComment?.role[0]}</p>
                                             </div>
                                         </div>
                                     </div>
