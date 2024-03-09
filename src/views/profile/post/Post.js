@@ -61,9 +61,9 @@ export const Post = ({post, setSelectedPost}) => {
                 console.log(response.data);
                 setMessage(true, 'Commentaire envoyé', 'success')
 
-                axios.get(SERVER_URL + `/post/${post.id}`)
+                axios.get(SERVER_URL + `/post`)
                     .then(r => {
-                        setSelectedPost(r.data)
+                        console.log(r.data)
                     })
                     .catch(e => {
                         console.error(e)
