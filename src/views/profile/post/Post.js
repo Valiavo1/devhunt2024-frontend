@@ -117,6 +117,10 @@ export const Post = ({post}) => {
                     </div>
                     <div className={"line-cloison"}></div>
                     <div className={"w-1/3 comment-in-post overflow-auto"}>
+                        {post.comments.map((comment, index) => (
+
+                            )
+                        ))}
                         <div className={"comment-post"}>
                             <div>
                                 <div className="flex items-center top">

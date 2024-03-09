@@ -4,8 +4,11 @@ import {UserNavbar} from "../components/sidebar/UserNavbar";
 import axios from "axios";
 import {SERVER_URL} from "../utils/URL";
 import {useAuthStore} from "../store/AuthStore";
+import FlashMessage from "../components/flashMessage/FlashMessage";
+import {useFlashMessageStore} from "../store/flashMessageStore";
 
 const UserLayout = () => {
+    const {message, showMessage, type} = useFlashMessageStore()
   if ( !localStorage.getItem ('USER_ACCESS') ) return <Navigate to="/"/>
 
 
@@ -20,6 +23,11 @@ const UserLayout = () => {
                   <Outlet/>
               </div>
           </div>
+          {showMessage && (
+              <div className="absolute bottom-2 right-2">
+                  <FlashMessage message={message} type={type}/>
+              </div>
+          )}
       </div>
   )
 }

@@ -20,7 +20,8 @@ export const PresHome = () => {
                         </p>
                     </div>
                     <Link to="/login">
-                        <div className="login-primary-button ml-5 text-center w-4/5 md:w-1/3 flex flex-row items-center justify-evenly">
+                        <div
+                            className="login-primary-button ml-5 text-center w-4/5 md:w-1/3 flex flex-row items-center justify-evenly">
                             Se Connecter
                             <Icon icon={RightArrow}/>
                         </div>

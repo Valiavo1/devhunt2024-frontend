@@ -2,7 +2,7 @@ import React from "react";
 import { useAuthStore } from "../../../store/AuthStore";
 import { MEDIA_URL } from "../../../utils/URL";
 
-export const UserInfo = () => {
+export const UserInfo = ({editProfile}) => {
     const { user } = useAuthStore();
     const userAvatarSrc = `${MEDIA_URL}${localStorage.getItem('img_user')}`;
     const defaultAvatarSrc = '/default.jpg'
@@ -28,7 +28,7 @@ export const UserInfo = () => {
                     <p className="text-xs text-center w-auto px-2 bg-role rounded-2xl py-1">{user?.role[0] ? user.role[0] : 'Default'}</p>
                 </div>
                 <div className="w-full order-3">
-                    <div className="w-full rounded edit-profile">Modifier le profil</div>
+                    <div className="w-full rounded edit-profile" onClick={() => editProfile(user)}>Modifier le profil</div>
                 </div>
             </div>
         </>

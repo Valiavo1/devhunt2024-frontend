@@ -3,6 +3,7 @@ import Icon from "../components/icon/Icon";
 import { ajoutPieces, tag, listIcon } from "../components/icon/IconeFile";
 import {usePostStore} from "../store/PostStore";
 import {useAuthStore} from "../store/AuthStore";
+import {useFlashMessageStore} from "../store/flashMessageStore";
 
 export const NewPost = () => {
   const [content, setContent] = useState('');
@@ -10,6 +11,7 @@ export const NewPost = () => {
   const [attachments, setAttachments] = useState([]);
   const fileInputRef = useRef(null);
   const {user} = useAuthStore()
+  const {setMessage} = useFlashMessageStore()
 
   const handleContentChange = (event) => {
     setContent(event.target.value);
