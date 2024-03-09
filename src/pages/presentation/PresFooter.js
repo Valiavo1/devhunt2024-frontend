@@ -1,21 +1,30 @@
 import React from 'react';
 import logoENI from "../../assets/logoEni.png"
+import Icon from "../../components/icon/Icon";
+import {MaddleLogo} from "../../components/icon/IconeFile";
 
 const PresFooter = () => {
 
 	return (
 		<footer className="bg-white dark:bg-gray-900">
-			<div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8  mt-20">
-				<div className="mb-6 md:mb-0">
-						<img src={logoENI} className="h-10 me-10 mb-6" alt="Logo ENI"/>
-									</div>
+			<div className="mx-auto w-full max-w-screen-xl pl-4 py-6 lg:py-8  mt-20 ">
+				<div className="flex items-center my-4 ">
+					<div>
+						<img src={logoENI} className="h-10" alt="Logo ENI"/>
+					</div>
+					<div className="flex items-center m-4">
+						<Icon icon={MaddleLogo} className="w-10 h-10"/>
+						<span> Maddle </span>
+					</div>
+				</div>
+
 				<div className="md:flex md:justify-between">
 
 
 					<div className=" flex-col sm:flex-row grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
 						<div>
 							<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">A propos</h2>
-							<span className="self-center   whitespace-normal  text-gray-500 dark:text-gray-400 font-medium truncate">Site web pour les inscriptions en ligne au concours d’entrée à l’ENI</span>
+							<span className="self-center   whitespace-normal  text-gray-500 dark:text-gray-400 font-medium truncate">Plateforme d'échange conçue pour faciliter les interactions entre les étudiants, les aînés, les enseignants, les clubs et les partenaires au sein de l'ENI.</span>
 						</div>
 						<div>
 							<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contacts</h2>
