@@ -46,9 +46,14 @@ export const Home = () => {
                              e.target.src = defaultAvatarSrc;
                            }}/>
                     </div>
-                    <div className="ml-2 designUser">
-                      <div className="pseudo-user">
-                        <p className="text-gray-100 font-semibold">{post.user.raisonSocial ? post.user.raisonSocial : post.user.lastname + " " + post.user.firstname}</p>
+                    <div className="ml-2 designUser w-full">
+                      <div className="w-full flex justify-between">
+                        <div className="pseudo-user">
+                          <p className="text-gray-100 font-semibold">{post.user.raisonSocial ? post.user.raisonSocial : post.user.lastname + " " + post.user.firstname}</p>
+                        </div>
+                        <div className="text-gray-200">
+                          {formatDate(post.createdAt.date)}
+                        </div>
                       </div>
                       <div className="flex items-center text-gray-500 etiquette">
                         <Icon icon={etiquetteIcon}/>
@@ -96,14 +101,14 @@ export const Home = () => {
                 className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-70"
                 onClick={() => setShowPost(false)}
             >
-                <Post post={selectedPost} />
+                <Post post={selectedPost} setSelectedPost={setSelectedPost} />
             </div>
         )}
       </div>
   )
 }
 
-const isImageFile = (title) => {
+export const isImageFile = (title) => {
   const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg']; // Add more if needed
   const fileExtension = title.split('.').pop().toLowerCase();
   return imageExtensions.includes(fileExtension);
@@ -127,4 +132,24 @@ export const downloadFile = async (file) => {
   } catch (error) {
     console.error('Download error:', error)
   }
+}
+
+export const formatDate = (inputDate) => {
+  const date = new Date(inputDate);
+
+  // Tableaux pour les noms des jours de la semaine et des mois
+  const daysOfWeek = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
+  // Récupérer les composants de la date
+  const dayOfWeek = daysOfWeek[date.getDay()];
+  const dayOfMonth = date.getDate().toString().padStart(2, '0');
+  const month = months[date.getMonth()];
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+
+  // Formatage de la date
+  const formattedDate = `${dayOfMonth} ${month} ${hours}:${minutes}`;
+
+  return formattedDate;
 }

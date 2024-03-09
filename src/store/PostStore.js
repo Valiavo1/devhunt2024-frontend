@@ -14,23 +14,27 @@ export const usePostStore = create((set) => ({
                 console.error(e)
             })
     },
-    addPost(title, description, type, attachment) {
-        const formData = new FormData();
-        formData.append("json_data", JSON.stringify({
-            title: title,
-            description: description,
-            type: type,
-            user_id: localStorage.getItem('user_id')
-        }));
+    addPost: async (title, description, type, attachment) => {
+        return new Promise((resolve, reject) => {
+            const formData = new FormData();
+            formData.append("json_data", JSON.stringify({
+                title: title,
+                description: description,
+                type: type,
+                user_id: localStorage.getItem('user_id')
+            }));
 
-        formData.append("piecesJointe", attachment[0]);
+            formData.append("piecesJointe", attachment[0]);
 
-        axios.post(SERVER_URL + `/post`, formData)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
+            axios.post(SERVER_URL + `/post`, formData)
+                .then(response => {
+                    console.log(response.data);
+                    resolve(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                    reject(error)
+                });
+        });
+    },
 }))
