@@ -117,58 +117,53 @@ export const Post = ({post}) => {
                     </div>
                     <div className={"line-cloison"}></div>
                     <div className={"w-1/3 comment-in-post overflow-auto"}>
-                        {post.comments.map((comment, index) => (
-
-                            )
-                        ))}
-                        <div className={"comment-post"}>
-                            <div>
-                                <div className="flex items-center top">
-                                    <div className="profil-actu">
-                                        <img src={MEDIA_URL + post?.user.path} alt="profil" className="profile-post"
-                                             onError={(e) => {
-                                                 e.target.src = defaultAvatarSrc;
-                                             }}/>
-                                    </div>
-                                    <div className="ml-2 designUser">
-                                        <div className="pseudo-user">
-                                            <p className="text-gray-100 text-sm font-semibold">{post?.user.raisonSocial ? post?.user.raisonSocial : post?.user.lastname + " " + post?.user.firstname}</p>
+                        {post?.comments?.map((comment, index) => (
+                            <div key={index} className={"comment-post"}>
+                                <div>
+                                    <div className="flex items-center top">
+                                        <div className="profil-actu">
+                                            <img src={MEDIA_URL + comment?.userComment.path} alt="profil" className="profile-post"
+                                                 onError={(e) => {
+                                                     e.target.src = defaultAvatarSrc;
+                                                 }}/>
                                         </div>
-                                        <div className="flex text-xs items-center text-gray-700 etiquette">
-                                            <Icon icon={etiquetteIcon}/>
-                                            <p>{post?.user.role[0]}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="post my-4 ml-10">
-                                    <div className="design-post text-gray-400">
-                                        <p className="text-sm">{post?.description}</p>
-                                    </div>
-                                    <div className="my-4 contenu text-white">
-                                        {post?.piecesJointe?.map((pj, index) => (
-                                            <div onClick={() => downloadFile(pj.piecesJointe)} key={index}>
-                                                {isImageFile(pj.piecesJointe) ? (
-                                                    <img src={PJ_URL + pj.piecesJointe} alt="contenu"
-                                                         className="pj-picture"/>
-                                                ) : (
-                                                    <FileTitle title={pj.piecesJointe}/>
-                                                )}
+                                        <div className="ml-2 designUser">
+                                            <div className="pseudo-user">
+                                                <p className="text-gray-100 text-sm font-semibold">{comment?.userComment.raisonSocial ? comment?.userComment.raisonSocial : comment?.userComment.lastname + " " + comment?.userComment.firstname}</p>
                                             </div>
-                                        ))}
+                                            <div className="flex text-xs items-center text-gray-700 etiquette">
+                                                <Icon icon={etiquetteIcon}/>
+                                                <p>{comment?.userComment.role[0]}</p>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div className="post my-4 ml-10">
+                                        <div className="design-post text-gray-400">
+                                            <p className="text-sm">{comment?.designation}</p>
+                                        </div>
+                                        <div className="my-4 contenu text-white">
+                                            {comment?.piecesJointeComment?.map((pj, index) => (
+                                                <div onClick={() => downloadFile(pj.piecesJointe)} key={index}>
+                                                    {isImageFile(pj.piecesJointe) ? (
+                                                        <img src={PJ_URL + pj.piecesJointe} alt="contenu"
+                                                             className="pj-picture"/>
+                                                    ) : (
+                                                        <FileTitle title={pj.piecesJointe}/>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
 
-                                </div>
-                                <div className="reaction my-4">
-                                    <button className="like">
-                                        <Icon icon={isLiked ? LikeFilledIcon : LikeIcon}
-                                              className="text-gray-500 mx-5"/>
-                                    </button>
-                                </div>
-                                <div
-                                    className="text-xs text-white opacity-40 ml-5 mt-3">{post?.comments?.length} Appréciations
+                                    </div>
+                                    <div className="reaction my-4">
+                                        <button className="like">
+                                            <Icon icon={isLiked ? LikeFilledIcon : LikeIcon}
+                                                  className="text-gray-500 mx-5"/>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        ))}
                         <div className="line-under-navbar mt-4"></div>
                         <div className="comment-field">
                             <textarea
