@@ -67,6 +67,8 @@ export const Post = ({post, setSelectedPost}) => {
                     ...prevPost,
                     comments: updatedComments
                 }));
+                setContent('');
+                setAttachments([]);
             })
             .catch(error => {
                 console.error(error);
