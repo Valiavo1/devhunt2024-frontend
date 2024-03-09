@@ -32,8 +32,7 @@ export const NewPost = () => {
       setAttachments([]);
 
       // If addPost is successful, set the flash message
-      setMessage(true, 'Publication envoyée avec succès', 'success');
-
+      setMessage(true, 'Publication envoyée avec succès', 'success')
     } catch (error) {
       setMessage(true, 'Une erreur durant envoie', 'error');
       console.error(error);

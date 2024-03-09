@@ -16,6 +16,7 @@ import {usePostStore} from "../../../store/PostStore";
 import {downloadFile, formatDate} from "../../Home";
 import {useFlashMessageStore} from "../../../store/flashMessageStore";
 
+
 export const Post = ({post, setSelectedPost}) => {
     const fileInputRef = useRef(null);
     const [isLiked, setIsLiked] = useState(false);
@@ -60,13 +61,13 @@ export const Post = ({post, setSelectedPost}) => {
                 console.log(response.data);
                 setMessage(true, 'Commentaire envoyé', 'success')
 
-                const newComment = response.data;
-                const updatedComments = [...post.comments, newComment];
-
-                setSelectedPost(prevPost => ({
-                    ...prevPost,
-                    comments: updatedComments
-                }));
+                axios.get(SERVER_URL + `/post/${post.id}`)
+                    .then(r => {
+                        setSelectedPost(r.data)
+                    })
+                    .catch(e => {
+                        console.error(e)
+                    })
                 setContent('');
                 setAttachments([]);
             })
