@@ -22,13 +22,21 @@ export const NewPost = () => {
     setAttachments([...attachments, ...files]);
   };
 
-  const handleSubmit = () => {
-    addPost(title, content, "novice", attachments)
-    console.log(title, content, attachments)
+  const handleSubmit = async () => {
+    try {
+      await addPost(title, content, "novice", attachments);
+      console.log(title, content, attachments);
 
-    setContent('');
-    setTitle('');
-    setAttachments([]);
+      setContent('');
+      setTitle('');
+      setAttachments([]);
+
+      // If addPost is successful, set the flash message
+      setMessage(true, 'Publication envoyée avec succès', 'success')
+    } catch (error) {
+      setMessage(true, 'Une erreur durant envoie', 'error');
+      console.error(error);
+    }
   };
 
   const  {addPost} = usePostStore()

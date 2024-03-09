@@ -13,9 +13,11 @@ import {
 import FileTitle from "../../NewPost";
 import axios from "axios";
 import {usePostStore} from "../../../store/PostStore";
-import {downloadFile} from "../../Home";
+import {downloadFile, formatDate} from "../../Home";
+import {useFlashMessageStore} from "../../../store/flashMessageStore";
 
-export const Post = ({post}) => {
+
+export const Post = ({post, setSelectedPost}) => {
     const fileInputRef = useRef(null);
     const [isLiked, setIsLiked] = useState(false);
     const [isComment, setIsComment] = useState(false)
@@ -23,6 +25,7 @@ export const Post = ({post}) => {
     const [attachments, setAttachments] = useState([]);
 
     const defaultAvatarSrc = '/default.jpg';
+    const {setMessage} = useFlashMessageStore()
 
     const isImageFile = (title) => {
         const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg']; // Add more if needed
@@ -42,7 +45,7 @@ export const Post = ({post}) => {
         const files = fileInputRef.current.files;
         setAttachments([...attachments, ...files]);
     };
-    
+
     const handleSubmit = () => {
         const formData = new FormData();
         formData.append("json_data", JSON.stringify({
@@ -56,11 +59,23 @@ export const Post = ({post}) => {
         axios.post(SERVER_URL + `/comment`, formData)
             .then(response => {
                 console.log(response.data);
+                setMessage(true, 'Commentaire envoyé', 'success')
+
+                axios.get(SERVER_URL + `/post`)
+                    .then(r => {
+                        console.log(r.data)
+                    })
+                    .catch(e => {
+                        console.error(e)
+                    })
+                setContent('');
+                setAttachments([]);
             })
             .catch(error => {
                 console.error(error);
+                setMessage(true, 'Erreur lors de l\'envoie', 'error')
             })
-    } 
+    }
 
     return (
         <>
@@ -75,9 +90,14 @@ export const Post = ({post}) => {
                                          e.target.src = defaultAvatarSrc;
                                      }}/>
                             </div>
-                            <div className="ml-2 designUser">
-                                <div className="pseudo-user">
-                                    <p className="text-gray-100 font-semibold">{post?.user.raisonSocial ? post?.user.raisonSocial : post?.user.lastname + " " + post?.user.firstname}</p>
+                            <div className="ml-2 designUser w-full">
+                                <div className="w-full flex justify-between">
+                                    <div className="pseudo-user">
+                                        <p className="text-gray-100 font-semibold">{post.user.raisonSocial ? post.user.raisonSocial : post.user.lastname + " " + post.user.firstname}</p>
+                                    </div>
+                                    <div className="text-gray-200 mr-2">
+                                        {formatDate(post.createdAt.date)}
+                                    </div>
                                 </div>
                                 <div className="flex items-center text-gray-700 etiquette">
                                     <Icon icon={etiquetteIcon}/>
@@ -122,18 +142,18 @@ export const Post = ({post}) => {
                                 <div>
                                     <div className="flex items-center top">
                                         <div className="profil-actu">
-                                            <img src={MEDIA_URL + comment?.userComment.path} alt="profil" className="profile-post"
+                                            <img src={MEDIA_URL + comment?.userComment?.path} alt="profil" className="profile-post"
                                                  onError={(e) => {
                                                      e.target.src = defaultAvatarSrc;
                                                  }}/>
                                         </div>
                                         <div className="ml-2 designUser">
                                             <div className="pseudo-user">
-                                                <p className="text-gray-100 text-sm font-semibold">{comment?.userComment.raisonSocial ? comment?.userComment.raisonSocial : comment?.userComment.lastname + " " + comment?.userComment.firstname}</p>
+                                                <p className="text-gray-100 text-sm font-semibold">{comment?.userComment?.raisonSocial ? comment?.userComment?.raisonSocial : comment?.userComment?.lastname + " " + comment?.userComment?.firstname}</p>
                                             </div>
                                             <div className="flex text-xs items-center text-gray-700 etiquette">
                                                 <Icon icon={etiquetteIcon}/>
-                                                <p>{comment?.userComment.role[0]}</p>
+                                                <p>{comment?.userComment?.role[0]}</p>
                                             </div>
                                         </div>
                                     </div>
